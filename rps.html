@@ -8,10 +8,7 @@
 
 <body>
     <script>
-        //make the computer choose randomly between rock, paper, or scissors.
-        //step 1: make the computer choose a random number between 1-3.
-        //step 2: assign rock to 1, scissors to 2, and paper to 3.
-        //step 3: return the chosen random number.
+        /// Make the computer choose randomly between rock, paper, or scissors.
 
         function getComputerChoice() {
             var randomInt = (Math.random() * 3) +1;
@@ -29,43 +26,50 @@
         let computerChoice = getComputerChoice();
         console.log(computerChoice);
 
-      
-
-        //Prompt the player about their choice.
-        //Player choice to lower case.
+        ///Prompt for player choice & change to lower case
 
         let play = prompt("Choose one: rock, paper, or scissors?", "");
         let playerChoice = play.toLowerCase();
         console.log(playerChoice);
 
-        //Compare the player choice with the computer choice.
-        //If player choice === computer choice, tie
-        //If player choice = rock {
-            /// If computer choice = paper, return "Computer wins!";
-            /// Else if computer choice = scissors, return "Player wins!"
-            ///}
-        //If player choice == paper {
-            /// If computer choice = rock, return "player wins!"
-            /// Else if computer choice = scissors, return "computer wins!"
-            ///}
-        //If player choice == scissors {
-            /// If computer choice = rock, return "computer wins!"
-            /// Else if computer choice = paper, return "player wins!"
-            ///}
-        
+      
+        /// Compare the computer's choice  to the player's and log the winner
 
 
-        function playRound() {
+        function playRound(player, computer) {
             if (playerChoice === computerChoice) {
-                console.log(`You chose ${playerChoice} , the computer chose ${computerChoice}. It's a tie!`);
+                console.log(`You chose ${playerChoice}, the computer chose ${computerChoice}. It's a tie!`);
             }
             else if (playerChoice === "rock") {
                 if (computerChoice === "paper") {
                     console.log("You chose rock. Computer chose paper. Computer wins!");
                 }
+                else if (computerChoice === "scissors") {
+                    console.log("You chose rock. Computer chose scissors. You win!")
+                }
             }
-            
+            else if (playerChoice === "paper") {
+                if (computerChoice === "rock") {
+                    console.log("You chose paper. Computer chose rock. You win!");
+                }
+                else if (computerChoice === "scissors") {
+                    console.log("You chose paper. Computer chose scissors. Computer wins.");
+                }
+            }
+            else if (playerChoice === "scissors") {
+                if (computerChoice === "rock") {
+                    console.log("You chose scissors. Computer chose rock. Computer wins.")
+                }
+                else if (computerChoice === "paper") {
+                    console.log("You chose scissors. Computer chose paper. You win!")
+                }
+            }
+            else {
+                console.log("Sorry, I didn't understand.")
+            }
         }
+
+        console.log(playRound());
 
 
 
