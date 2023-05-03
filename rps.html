@@ -8,6 +8,9 @@
 
 <body>
     <script>
+        let keepGoing = 0;
+        while (keepGoing<5) {
+        
         /// Make the computer choose randomly between rock, paper, or scissors.
 
         function getComputerChoice() {
@@ -23,45 +26,46 @@
                 return "rock";
             }
         }
+        
         let computerChoice = getComputerChoice();
         console.log(computerChoice);
 
-        ///Prompt for player choice & change to lower case
+
+
+      
+        /// Compare the computer's choice  to the player's and log the winner
 
         let play = prompt("Choose one: rock, paper, or scissors?", "");
         let playerChoice = play.toLowerCase();
         console.log(playerChoice);
 
-      
-        /// Compare the computer's choice  to the player's and log the winner
-
-
+        
         function playRound(player, computer) {
             if (playerChoice === computerChoice) {
-                console.log(`You chose ${playerChoice}, the computer chose ${computerChoice}. It's a tie!`);
+                console.log(`Round ${keepGoing + 1}: You chose ${playerChoice}, the computer chose ${computerChoice}. It's a tie!`);
             }
             else if (playerChoice === "rock") {
                 if (computerChoice === "paper") {
-                    console.log("You chose rock. Computer chose paper. Computer wins!");
+                    console.log(`Round ${keepGoing + 1}: You chose rock. Computer chose paper. Computer wins!`);
                 }
                 else if (computerChoice === "scissors") {
-                    console.log("You chose rock. Computer chose scissors. You win!")
+                    console.log(`Round ${keepGoing + 1}: You chose rock. Computer chose scissors. You win!`);
                 }
             }
             else if (playerChoice === "paper") {
                 if (computerChoice === "rock") {
-                    console.log("You chose paper. Computer chose rock. You win!");
+                    console.log(`Round ${keepGoing + 1}: You chose paper. Computer chose rock. You win!`);
                 }
                 else if (computerChoice === "scissors") {
-                    console.log("You chose paper. Computer chose scissors. Computer wins.");
+                    console.log(`Round ${keepGoing + 1}: You chose paper. Computer chose scissors. Computer wins.`);
                 }
             }
             else if (playerChoice === "scissors") {
                 if (computerChoice === "rock") {
-                    console.log("You chose scissors. Computer chose rock. Computer wins.")
+                    console.log(`Round ${keepGoing + 1}: You chose scissors. Computer chose rock. Computer wins.`);
                 }
                 else if (computerChoice === "paper") {
-                    console.log("You chose scissors. Computer chose paper. You win!")
+                    console.log(`Round ${keepGoing + 1}: You chose scissors. Computer chose paper. You win!`);
                 }
             }
             else {
@@ -69,11 +73,25 @@
             }
         }
 
-        console.log(playRound());
+
+    
+        
+        /// loop
 
 
+
+            keepGoing++;
+        }
+
+        
+        
+        
 
     </script>
+
+
+
+
 
 </body>
 
