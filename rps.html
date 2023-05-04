@@ -28,20 +28,23 @@
         }
         
         let computerChoice = getComputerChoice();
+        console.log(`Round ${keepGoing + 1}`);
         console.log(computerChoice);
 
 
+        /// Get the player's choice
 
       
-        /// Compare the computer's choice  to the player's and log the winner
 
         let play = prompt("Choose one: rock, paper, or scissors?", "");
         let playerChoice = play.toLowerCase();
         console.log(playerChoice);
 
         
-        function playRound(player, computer) {
-            if (playerChoice === computerChoice) {
+       
+        /// Compare the computer's choice  to the player's and log the winner
+       
+             if (playerChoice === computerChoice) {
                 console.log(`Round ${keepGoing + 1}: You chose ${playerChoice}, the computer chose ${computerChoice}. It's a tie!`);
             }
             else if (playerChoice === "rock") {
@@ -70,8 +73,8 @@
             }
             else {
                 console.log("Sorry, I didn't understand.")
-            }
-        }
+            };
+
 
 
     
