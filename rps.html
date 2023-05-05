@@ -8,6 +8,9 @@
 
 <body>
     <script>
+        let playerScore = 0;
+        let computerScore = 0;
+
         let keepGoing = 0;
         while (keepGoing<5) {
         
@@ -15,7 +18,7 @@
 
         function getComputerChoice() {
             var randomInt = (Math.random() * 3) +1;
-            console.log(randomInt);
+
             if (randomInt >= 3) {
                 return "scissors";
             }
@@ -28,8 +31,7 @@
         }
         
         let computerChoice = getComputerChoice();
-        console.log(`Round ${keepGoing + 1}`);
-        console.log(computerChoice);
+
 
 
         /// Get the player's choice
@@ -38,37 +40,42 @@
 
         let play = prompt("Choose one: rock, paper, or scissors?", "");
         let playerChoice = play.toLowerCase();
-        console.log(playerChoice);
 
         
        
         /// Compare the computer's choice  to the player's and log the winner
        
              if (playerChoice === computerChoice) {
-                console.log(`Round ${keepGoing + 1}: You chose ${playerChoice}, the computer chose ${computerChoice}. It's a tie!`);
+                console.log(`Round ${keepGoing + 1}: You chose ${playerChoice}. Computer chose ${computerChoice}. It's a tie!`);
             }
             else if (playerChoice === "rock") {
                 if (computerChoice === "paper") {
                     console.log(`Round ${keepGoing + 1}: You chose rock. Computer chose paper. Computer wins!`);
+                    computerScore++;
                 }
                 else if (computerChoice === "scissors") {
                     console.log(`Round ${keepGoing + 1}: You chose rock. Computer chose scissors. You win!`);
+                    playerScore++;
                 }
             }
             else if (playerChoice === "paper") {
                 if (computerChoice === "rock") {
                     console.log(`Round ${keepGoing + 1}: You chose paper. Computer chose rock. You win!`);
+                    playerScore++;
                 }
                 else if (computerChoice === "scissors") {
                     console.log(`Round ${keepGoing + 1}: You chose paper. Computer chose scissors. Computer wins.`);
+                    computerScore++;
                 }
             }
             else if (playerChoice === "scissors") {
                 if (computerChoice === "rock") {
                     console.log(`Round ${keepGoing + 1}: You chose scissors. Computer chose rock. Computer wins.`);
+                    computerScore++;
                 }
                 else if (computerChoice === "paper") {
                     console.log(`Round ${keepGoing + 1}: You chose scissors. Computer chose paper. You win!`);
+                    playerScore++;
                 }
             }
             else {
@@ -77,17 +84,18 @@
 
 
 
-    
-        
-        /// loop
-
-
-
             keepGoing++;
         }
 
-        
-        
+        if (playerScore === computerScore) {
+            console.log(`The game is tied! Final score: You got ${playerScore} points | Computer got ${computerScore} points.`);
+        }
+        else if (playerScore>computerScore) {
+            console.log(`You win the game! Final score: You got ${playerScore} points | Computer got ${computerScore} points.`);
+        }
+        else if (computerScore<playerScore) {
+            console.log(`Computer wins the game! Final score: You got ${playerScore} points | Computer got ${computerScore} points.`);
+        }
         
 
     </script>
